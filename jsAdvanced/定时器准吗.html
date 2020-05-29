@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="startTime()">开始记时</button>
+    <button onclick="startTime1()">开始记时(阻塞)</button>
+    <script>
+        /*
+            测试定时器是否定时执行，
+            具体原因看js单线执行
+        */
+        function startTime() {
+            let start = Date.now();
+            setTimeout(() => {
+                let end = Date.now();
+                count = end - start;
+                console.log("没有使用循环阻塞的定时器"+count);
+            }, 1000);
+        }
+        function startTime1(){
+            let start = Date.now();
+            for (let i = 0; i < 1000000000; i++) {
+                let element = i;
+            }
+            setTimeout(() => {
+                let end = Date.now();
+                count = end - start;
+                console.log("使用循环阻塞的定时器"+count);
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

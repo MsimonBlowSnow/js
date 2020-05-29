@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            1.分类
+                基本类型:
+                    String Number boolean undefined null
+                复杂类型(对象一种)
+                    Object 任意对象对视Object类型
+                    Array  一种特别的对象 (内部有序)
+                    Function 一种特别的对象(可以执行)
+            2.判断对象的类型
+                typeof 返回值为字符串
+                    可以用来判断 (String,Number, boolean,undefined)
+                    返回的类型:  number, boolean, string, undefined, object, function,symbol
+                        typeof(NaN); //number
+                        typeof(null); //object
+                不能区分array和object
+                instanceof 
+                    使用: a instanceof b 
+                        判断a 是不是b的一个实例，即a是b的构造函数创建的对象
+                    区分array和object
+                        {} instanceof Array //true
+                        [] instanceof Array //false
+                ===可以判断 undefined null 
+
+
+                undefined == null //true
+                undefined === null //false
+                undefined: 代表定义了没有赋值
+                null 代表定义了赋值为了null
+                
+                null的用法:
+                    1.开始赋值为null 表明该变量将要赋值为对象
+                    2.结束赋值weinull， 将原对象变为垃圾对象
+        */
+       /*
+            区分数组和对象
+                1.{}.constructor //返回Object
+                  [].construceor //返回Array
+                2.[] instance of Array //true
+                  {} instance of Array //false
+                3. Object.prototype.toString.call([]); "[object Array]"
+                   Object.prototype.toString.call({}); "[object Object]"
+                4. es6中Array提供的新方法
+                    Array.isArray([]) //true;
+                    Array.isArray({}) //false
+
+       */
+       console.log(typeof(NaN));
+    </script>
+</body>
+</html>

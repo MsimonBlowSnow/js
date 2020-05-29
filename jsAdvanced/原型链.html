@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var A = function (){}
+        var b = new A(); 
+        console.log(b.__proto__); //A.prototype
+        console.log(b.__proto__.__proto__ === Object.prototype); //Object.prototype
+        console.log(b.__proto__.__proto__.__proto__); //null
+
+        /*
+            b的原型是 A的原型 
+            A的原型是 他的构造器的原型 即 Object.prototype
+            Object.prototype 的构造器的原型为null
+
+            总结: 由于__proto__是任何对象都有的属性，就会形成一条原型链 ，最终为空
+
+            js查找属性时，先查找该对象是否有这个属性，如果不存在会在原型链上查找，不会找自身的prototype。
+        */
+    </script>
+</body>
+</html>

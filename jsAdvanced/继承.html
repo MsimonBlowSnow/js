@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let Animal = function (name, age) {
+            this.name = name;
+            this.age = age;
+
+        }
+        Animal.prototype.sayhello = function () {
+            console.log('hello');
+        }
+        Animal.prototype.eat = function (food) {
+            console.log("eat food");
+        }
+
+        let Cat = function () {
+            Animal.apply(this, arguments);
+            this.type = '猫';
+            
+        this.bark = function (){
+            console.log('miao')
+        }
+        }
+        Cat.prototype.bark = function (){
+            console.log('miao')
+        }
+        Cat.prototype = Animal.prototype; //干掉了自己原有的原型
+        //Cat.prototype = new Animal();
+        
+        let tom = new Cat('zs', '11');//但是这没法使用函数里面的function，不过可以通过修改Cat的原型即可
+       // tom.sayhello(); //报错
+        
+        
+        
+        
+        console.log(tom);
+        tom.bark();
+        tom.sayhello(); //没问题
+        tom.bark();
+    </script>
+</body>
+
+</html>

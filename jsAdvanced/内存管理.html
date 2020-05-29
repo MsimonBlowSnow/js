@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management
+        
+        /*
+            js内存管理机制
+                主要时两个机制:
+                    以前: 使用的0引用算法，现在用的是标志检查的方法
+                    0引用算法：
+                        判断一个对象是否还被其他对象引用，有垃圾回收器就不会将其回收，没有就回收
+                    标志清除算法:
+                        这个算法假定设置一个叫做根（root）的对象（在Javascript里，根是全局对象）。
+                        垃圾回收器将定期从根开始，找所有从根开始引用的对象，然后找这些对象引用的对象……从根开始，
+                        垃圾回收器将找到所有可以获得的对象和收集所有不能获得的对象。
+
+                0引用算法的缺点:
+                    不能解决循环引用的问题
+        */
+    </script>
+</body>
+</html>

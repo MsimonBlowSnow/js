@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            其他的对象可以通过原型来实现继承但是除了prototype
+            除了null,其余的都会有原型
+            __proto__: 每个对象都有这个属性，
+                这不是一个规范的属性，只是部分浏览器实现了这个属性，对应的标准属性是 [[prototype]]
+            prototype: 只有函数才会有prototype，这是函数的原型
+
+
+            普通对象的原型是 __proto__的
+            函数的原型是 prototype
+
+            大多数情况下__proto__可以理解为构造器的原型 即
+                console.log(a.__proto__ === a.constructor.prototype;); //true
+            处理Object.create 方式创建出来的
+                     var c = {};
+                        d = Object.create(c);//对象的属性都来自c
+                        console.log(d.__proto__ === c);  //true 就是空，他的原型是c，
+                        console.log(d.__proto__ === c.prototype); //false
+        */
+
+        /*
+            __proto__ 取决与对象创建的实现方式
+                有三个指向:
+                    1.字面量方式
+                        var a = {};//让的原型是__proto__等于 a.constructor.prototype;
+                    2.构造器方法:
+                        var A = function(){};
+                        var b = new A();
+                        console.log(b.__proto__=== b.constructor.prototype); //true
+                        console.log(b.__proto__ === A.prototype); //true
+                    3. Object.create方法创建的
+                        var c = {};
+                        d = Object.create(c);//对象的属性都来自c
+                        console.log(d.__proto__ === c)就是空，他的原型是c，
+                        console.log(d.__proto__ === c.prototype); //false
+        */
+        let arr = [1,2,3];
+        console.log(arr.__proto__);
+
+       
+    </script>
+</body>
+</html>

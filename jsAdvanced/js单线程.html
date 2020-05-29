@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="singleLine()">开始</button>
+    <script>
+        /*
+            1.证明js是单线程执行
+                使用alert会阻塞当前的主线程
+
+            2.js的执行顺序
+                1.先执行初始化代码，
+                2.执行回调函数的代码例如: 定时器，事件函数，ajax请求，文件的读写
+        */
+       function singleLine(){
+        console.log(11);
+        alert(12);
+        console.log(22);
+        let start = Date.now();
+        let midden;
+        let end;
+        setTimeout(() => {
+            console.log(333);
+            midden = Date.now();
+            alert(111);
+        }, 0);
+        setTimeout(() => {
+            console.log("end");
+            end = Date.now();
+            console.log(end-midden);
+        }, 6000);
+       }
+    </script>
+</body>
+</html>
